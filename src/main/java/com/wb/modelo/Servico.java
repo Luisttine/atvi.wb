@@ -1,5 +1,8 @@
 package com.wb.modelo;
 
-public abstract class Servico {
+public class Servico {
+	public Servico(String nome) {
+		this.nome = nome;
+	}
 	public String nome;
 }
