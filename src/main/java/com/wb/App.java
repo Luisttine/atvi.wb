@@ -35,11 +35,15 @@ public class App {
 				System.out.println("1 - Cadastro de Clientes");
 				System.out.println("2 - Cadastro de Produtos");
 				System.out.println("3 - Cadastro de Serviços");
-				
+				System.out.println("0 - Voltar");
+
 				Entrada entradaCad = new Entrada();
 				int cadastros = entradaCad.receberNumeroInteiro();
 				
 				switch ( cadastros ) {
+				case 0:
+					System.out.println("Voltando para o menu inicial.");
+					break;
 				case 1:
 					Cadastro cadastroCli = new CadastroCliente(empresa.getClientes());
 					cadastroCli.cadastrar();
@@ -61,11 +65,15 @@ public class App {
 				System.out.println("1 - Listar todos os Clientes");
 				System.out.println("2 - Listar todos os Produtos");
 				System.out.println("3 - Listar todos os Serviços");
-				
+				System.out.println("0 - Voltar");
+
 				Entrada entradaList = new Entrada();
 				int listagens = entradaList.receberNumeroInteiro();
 
 				switch ( listagens ) {
+				case 0:
+					System.out.println("Voltando para o menu inicial.");
+					break;
 				case 1:
 					Listagem listagemCli = new ListarTodosClientes(empresa.getClientes());
 					listagemCli.listar();
