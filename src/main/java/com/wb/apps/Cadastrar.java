@@ -17,7 +17,9 @@ public class Cadastrar extends Execucao {
 	@Override
 	public void executar() {
 		
-		while ( true ) {
+		boolean op = true;
+		
+		while ( op ) {
 			System.out.println("\nQue tipo de cadastro você deseja realizar:");
 			System.out.println("1 - Cadastro de Clientes");
 			System.out.println("2 - Cadastro de Produtos");
@@ -30,6 +32,7 @@ public class Cadastrar extends Execucao {
 			switch ( cadastros ) {
 			case 0:
 				System.out.println("Voltando para o menu inicial.");
+				op = false;
 				break;
 			case 1:
 				Cadastro cadastroCli = new CadastroCliente(empresa.getClientes());
@@ -46,7 +49,6 @@ public class Cadastrar extends Execucao {
 			default:
 				System.out.println("\nOperação não entendida");
 			}
-			break;
 		}
 	}
 

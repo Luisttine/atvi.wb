@@ -17,7 +17,9 @@ public class Listar extends Execucao{
 	@Override
 	public void executar() {
 		
-		while ( true ) {
+		boolean  op = true;
+		
+		while ( op ) {
 			System.out.println("\nQue tipo de listagem você deseja realizar:");
 			System.out.println("1 - Listar todos os Clientes");
 			System.out.println("2 - Listar todos os Produtos");
@@ -30,6 +32,7 @@ public class Listar extends Execucao{
 			switch ( listagens ) {
 			case 0:
 				System.out.println("Voltando para o menu inicial.");
+				op = false;
 				break;
 			case 1:
 				Listagem listagemCli = new ListarTodosClientes(empresa.getClientes());
@@ -48,7 +51,6 @@ public class Listar extends Execucao{
 			default:
 				System.out.println("\nOperação não entendida");
 			}
-			break;
 		}
 	}
 }

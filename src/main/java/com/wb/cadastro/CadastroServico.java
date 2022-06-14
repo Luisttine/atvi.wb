@@ -18,11 +18,13 @@ public class CadastroServico extends Cadastro {
 	public void cadastrar() {
 		System.out.println("Início do cadastro de serviços");
 		
-		
 		System.out.println("Por favor informe o nome do serviço:");
-		String nome = entrada.receberTexto();		
+		String nome = entrada.receberTexto();	
 		
-		Servico servico = new Servico(nome);
+		System.out.println("Por favor informe o valor do serviço:");
+		double preco = entrada.receberNumeroDouble();
+		
+		Servico servico = new Servico(nome, preco);
 		
 		this.servico.add(servico);
 	}

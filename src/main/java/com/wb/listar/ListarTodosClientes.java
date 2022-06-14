@@ -32,7 +32,7 @@ public class ListarTodosClientes extends Listagem {
 			System.out.println("Genero: " + cliente.getGenero());
 			System.out.println("--------------------------------------");
 			
-			i += 1;
+			i+=1;
 		}
 	}
 }

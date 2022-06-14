@@ -2,9 +2,9 @@ package com.wb;
 
 import com.wb.apps.Cadastrar;
 import com.wb.apps.Deletar;
+import com.wb.apps.Editar;
 import com.wb.apps.Execucao;
 import com.wb.apps.Listar;
-import com.wb.editar.Editar;
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 
@@ -19,7 +19,7 @@ public class App {
 			System.out.println("2 - Listagens");
 			System.out.println("3 - Editar Cadastros");
 			System.out.println("4 - Excluir Cadastros");
-			System.out.println("5 - Outros");
+			System.out.println("5 - Outras Listagens");
 			System.out.println("0 - Sair");
 
 			Entrada entrada = new Entrada();
