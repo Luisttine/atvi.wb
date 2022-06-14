@@ -1,4 +1,4 @@
-package com.wb.negocio;
+package com.wb.listar;
 
 import java.util.List;
 import com.wb.modelo.Produto;

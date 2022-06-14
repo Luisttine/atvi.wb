@@ -1,4 +1,4 @@
-package com.wb.negocio;
+package com.wb.cadastro;
 
 public abstract class Cadastro {
 	public abstract void cadastrar();

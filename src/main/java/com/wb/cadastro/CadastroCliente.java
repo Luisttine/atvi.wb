@@ -1,4 +1,4 @@
-package com.wb.negocio;
+package com.wb.cadastro;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -51,8 +51,28 @@ public class CadastroCliente extends Cadastro {
 		String numero = entrada.receberTexto();
 		Telefone telefone = new Telefone(ddd, numero);
 		
-		
-		Cliente cliente = new Cliente(nome, nomeSocial, cpf);
+		String genero = "";
+		boolean execucaoGenero = true;
+		while(execucaoGenero) {
+			System.out.println("Por favor informe o gênero do cliente:");
+			System.out.println("1 - Masculino");
+			System.out.println("2 - Feminino");
+			int generoNum = entrada.receberNumeroInteiro();
+			entrada.receberTexto();
+			if (generoNum == 1) {
+				genero = "Masculino";
+				execucaoGenero = false;
+			} else {
+				if (generoNum == 2) {
+					genero = "Feminino";
+					execucaoGenero = false;
+				}
+				else {
+				System.out.println("Valor inválido! Verifique se você digitou corretamente!");
+				}
+			}
+		}
+		Cliente cliente = new Cliente(nome, nomeSocial, cpf, genero);
 		cliente.getRgs().add(rgs);
 		cliente.getTelefones().add(telefone);
 		

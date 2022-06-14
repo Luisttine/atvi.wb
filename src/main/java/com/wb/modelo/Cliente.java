@@ -13,7 +13,9 @@ public class Cliente {
 	private List<Telefone> telefones;
 	private List<Produto> produtosConsumidos;
 	private List<Servico> servicosConsumidos;
-	public Cliente(String nome, String nomeSocial, CPF cpf) {
+	private String genero;
+	
+	public Cliente(String nome, String nomeSocial, CPF cpf, String genero) {
 		this.nome = nome;
 		this.nomeSocial = nomeSocial;
 		this.cpf = cpf;
@@ -22,6 +24,7 @@ public class Cliente {
 		this.telefones = new ArrayList<Telefone>();
 		this.produtosConsumidos = new ArrayList<Produto>();
 		this.servicosConsumidos = new ArrayList<Servico>();
+		this.genero = genero;
 	}
 	public CPF getCpf() {
 		return cpf;
@@ -40,5 +43,8 @@ public class Cliente {
 	}
 	public List<Servico> getServicosConsumidos() {
 		return servicosConsumidos;
+	}
+	public String getGenero() {
+		return genero;
 	}
 }

@@ -1,4 +1,4 @@
-package com.wb.negocio;
+package com.wb.cadastro;
 
 import java.util.List;
 import com.wb.io.Entrada;
