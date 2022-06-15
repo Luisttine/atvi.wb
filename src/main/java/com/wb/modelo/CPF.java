@@ -17,4 +17,12 @@ public class CPF {
 	public String getValor() {
 		return valor;
 	}
+
+	public void setDataEmissao(LocalDate dataEmissao) {
+		this.dataEmissao = dataEmissao;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
 }

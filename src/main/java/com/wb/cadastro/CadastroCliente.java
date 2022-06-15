@@ -29,28 +29,6 @@ public class CadastroCliente extends Cadastro {
 		System.out.println("Por favor informe o nome social do cliente:");
 		String nomeSocial = entrada.receberTexto();
 		
-		System.out.println("Por favor informe o número do cpf:");
-		String valor1 = entrada.receberTexto();
-		System.out.println("Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy:");
-		String data1 = entrada.receberTexto();
-		DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate dataEmissao1 = LocalDate.parse(data1, formato1);
-		CPF cpf = new CPF(dataEmissao1, valor1);
-		
-		System.out.println("Por favor informe o número do RG:");
-		String valor2 = entrada.receberTexto();
-		System.out.println("Por favor informe a data de emissão do rg, no padrão dd/mm/yyyy:");
-		String data2 = entrada.receberTexto();
-		DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate dataEmissao2 = LocalDate.parse(data2, formato2);
-		RG rgs = new RG(dataEmissao2, valor2);
-		
-		System.out.println("Por favor informe seu ddd:");
-		String ddd = entrada.receberTexto();
-		System.out.println("Por favor informe seu telefone para contato:");
-		String numero = entrada.receberTexto();
-		Telefone telefone = new Telefone(ddd, numero);
-		
 		String genero = "";
 		boolean execucaoGenero = true;
 		while(execucaoGenero) {
@@ -72,9 +50,46 @@ public class CadastroCliente extends Cadastro {
 				}
 			}
 		}
+		
+		System.out.println("Por favor informe o número do cpf:");
+		String valor1 = entrada.receberTexto();
+		System.out.println("Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy:");
+		String data1 = entrada.receberTexto();
+		DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate dataEmissao1 = LocalDate.parse(data1, formato1);
+		CPF cpf = new CPF(dataEmissao1, valor1);
+		
 		Cliente cliente = new Cliente(nome, nomeSocial, cpf, genero);
-		cliente.getRgs().add(rgs);
-		cliente.getTelefones().add(telefone);
+		
+		String outroRg = "sim";
+		
+		while (outroRg == "sim") {
+			System.out.println("Por favor informe o número do RG:");
+			String valor2 = entrada.receberTexto();
+			System.out.println("Por favor informe a data de emissão do rg, no padrão dd/mm/yyyy:");
+			String data2 = entrada.receberTexto();
+			DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate dataEmissao2 = LocalDate.parse(data2, formato2);
+			RG rgs = new RG(dataEmissao2, valor2);
+			cliente.getRgs().add(rgs);
+			
+			System.out.println("Digite sim para cadastrar outro RG e não para continuar");
+			outroRg = entrada.receberTexto();
+			
+		}
+		
+		String outroTel = "sim";
+		while (outroTel == "sim") {
+			System.out.println("Por favor informe seu ddd:");
+			String ddd = entrada.receberTexto();
+			System.out.println("Por favor informe seu telefone para contato:");
+			String numero = entrada.receberTexto();
+			Telefone telefone = new Telefone(ddd, numero);
+			cliente.getTelefones().add(telefone);	
+			
+			System.out.println("Digite sim para cadastrar outro Telefone e não para continuar");
+			outroTel = entrada.receberTexto();
+		}
 		
 		this.clientes.add(cliente);
 	}

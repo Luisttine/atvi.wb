@@ -32,6 +32,12 @@ public class Cliente {
 	public List<RG> getRgs() {
 		return rgs;
 	}
+	public void setRgs(List<RG> rgs) {
+		this.rgs = rgs;
+	}
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}

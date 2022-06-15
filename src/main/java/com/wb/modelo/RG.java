@@ -18,4 +18,5 @@ public class RG {
 	public String getValor() {
 		return valor;
 	}
+
 }

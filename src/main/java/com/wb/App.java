@@ -40,6 +40,9 @@ public class App {
 				Listar.executar();
 			break;
 			
+			case 3:
+				Execucao Editar = new Editar(empresa);
+				Editar.executar();
 			case 4:
 				Execucao Deletar = new Deletar(empresa);
 				Deletar.executar();
