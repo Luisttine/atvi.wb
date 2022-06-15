@@ -19,4 +19,12 @@ public class RG {
 		return valor;
 	}
 
+	public void setDataEmissao(LocalDate dataEmissao) {
+		this.dataEmissao = dataEmissao;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
 }

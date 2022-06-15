@@ -7,4 +7,5 @@ public class Servico {
 	}
 	public double preco;
 	public String nome;
+	public int quantidade;
 }

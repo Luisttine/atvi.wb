@@ -1,6 +1,7 @@
 package com.wb;
 
 import com.wb.apps.Cadastrar;
+import com.wb.apps.Carrinho;
 import com.wb.apps.Deletar;
 import com.wb.apps.Editar;
 import com.wb.apps.Execucao;
@@ -14,12 +15,13 @@ public class App {
 		Empresa empresa = new Empresa();
 		boolean execucao = true;
 		while (execucao) {
-			System.out.println("\nQue tipo de operação você deseja fazer:");
+			System.out.println("\nQue tipo de operação você deseja fazer");
 			System.out.println("1 - Cadastros");
 			System.out.println("2 - Listagens");
 			System.out.println("3 - Editar Cadastros");
 			System.out.println("4 - Excluir Cadastros");
-			System.out.println("5 - Outras Listagens");
+			System.out.println("5 - Carrinho");
+			System.out.println("6 - Outras Listagens");
 			System.out.println("0 - Sair");
 
 			Entrada entrada = new Entrada();
@@ -43,10 +45,14 @@ public class App {
 			case 3:
 				Execucao Editar = new Editar(empresa);
 				Editar.executar();
+			break;
 			case 4:
 				Execucao Deletar = new Deletar(empresa);
 				Deletar.executar();
-				
+			break;	
+			case 5:
+				Execucao Carrinho = new Carrinho(empresa);
+				Carrinho.executar();
 			default:
 				System.out.println("\nOperação não entendida");
 			}

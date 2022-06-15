@@ -2,6 +2,7 @@ package com.wb.apps;
 
 import com.wb.io.Entrada;
 import com.wb.listar.Listagem;
+import com.wb.listar.ListarProdutosConsumidos;
 import com.wb.listar.ListarTodosClientes;
 import com.wb.listar.ListarTodosProdutos;
 import com.wb.listar.ListarTodosServicos;
@@ -24,6 +25,8 @@ public class Listar extends Execucao{
 			System.out.println("1 - Listar todos os Clientes");
 			System.out.println("2 - Listar todos os Produtos");
 			System.out.println("3 - Listar todos os Serviços");
+			System.out.println("4 - Listar todos os Produtos Consumidos");
+			System.out.println("5 - Listar todos os Serviços Consumidos");
 			System.out.println("0 - Voltar");
 		
 			Entrada entradaList = new Entrada();
@@ -47,6 +50,12 @@ public class Listar extends Execucao{
 			case 3:
 				Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
 				listagemServ.listar();
+				break;
+			case 4:
+				Listagem listagemProdCons = new ListarProdutosConsumidos(empresa.getClientes());
+				listagemProdCons.listar();
+				break;
+			case 5:
 				break;
 			default:
 				System.out.println("\nOperação não entendida");

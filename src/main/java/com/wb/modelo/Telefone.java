@@ -15,4 +15,13 @@ public class Telefone {
 	public String getNumero() {
 		return numero;
 	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 }

@@ -32,7 +32,7 @@ public class CadastroCliente extends Cadastro {
 		String genero = "";
 		boolean execucaoGenero = true;
 		while(execucaoGenero) {
-			System.out.println("Por favor informe o gênero do cliente:");
+			System.out.println("Por favor informe o gênero do cliente");
 			System.out.println("1 - Masculino");
 			System.out.println("2 - Feminino");
 			int generoNum = entrada.receberNumeroInteiro();
@@ -63,7 +63,7 @@ public class CadastroCliente extends Cadastro {
 		
 		String outroRg = "sim";
 		
-		while (outroRg == "sim") {
+		while (outroRg.equals("sim")) {
 			System.out.println("Por favor informe o número do RG:");
 			String valor2 = entrada.receberTexto();
 			System.out.println("Por favor informe a data de emissão do rg, no padrão dd/mm/yyyy:");
@@ -73,13 +73,13 @@ public class CadastroCliente extends Cadastro {
 			RG rgs = new RG(dataEmissao2, valor2);
 			cliente.getRgs().add(rgs);
 			
-			System.out.println("Digite sim para cadastrar outro RG e não para continuar");
+			System.out.println("Digite sim para cadastrar outro RG e nao para continuar");
 			outroRg = entrada.receberTexto();
 			
 		}
 		
 		String outroTel = "sim";
-		while (outroTel == "sim") {
+		while (outroTel.equals("sim")) {
 			System.out.println("Por favor informe seu ddd:");
 			String ddd = entrada.receberTexto();
 			System.out.println("Por favor informe seu telefone para contato:");
@@ -87,7 +87,7 @@ public class CadastroCliente extends Cadastro {
 			Telefone telefone = new Telefone(ddd, numero);
 			cliente.getTelefones().add(telefone);	
 			
-			System.out.println("Digite sim para cadastrar outro Telefone e não para continuar");
+			System.out.println("Digite sim para cadastrar outro Telefone e nao para continuar");
 			outroTel = entrada.receberTexto();
 		}
 		

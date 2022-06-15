@@ -48,6 +48,7 @@ public class Editar extends Execucao{
 					if (numCliente >= 0 && numCliente < empresa.getClientes().size()) {
 						break;
 					}
+				}
 					System.out.println("Número de cliente inválido! Verifique se o número inserido está correto.");
 				
 				System.out.println("\nQual informação você deseja editar");
@@ -57,21 +58,21 @@ public class Editar extends Execucao{
 				System.out.println("4 - Telefone");
 				System.out.println("0 - Voltar");
 				System.out.println("\nDigite o número do cliente que você deseja editar");
-				int cli = entrada.receberNumeroInteiro();
 				
 				int editarCli = entrada.receberNumeroInteiro();
+				entrada.receberTexto();
 
 				switch ( editarCli ) {
 				case 1:
-					System.out.println("Por favor informe o nome do cliente:");
+					System.out.println("Por favor informe o novo nome do cliente:");
 					String nome = entrada.receberTexto();
 					this.empresa.getClientes().get(numCliente).nome = nome;
 					
-					System.out.println("Por favor informe o nome social do cliente:");
+					System.out.println("Por favor informe o novo nome social do cliente:");
 					String nomeSocial = entrada.receberTexto();
-					this.empresa.getClientes().get(numCliente).nome = nomeSocial;
+					this.empresa.getClientes().get(numCliente).nomeSocial = nomeSocial;
 					
-					System.out.println("CPF editado com sucesso");
+					System.out.println("Nome e nome social editado com sucesso");
 					break;
 				
 				case 2:
@@ -97,22 +98,22 @@ public class Editar extends Execucao{
 						System.out.println("Digite o número do RG que você deseja editar:");
 						numRg = entrada.receberNumeroInteiro();
 						if (numRg>= 0 && numRg < empresa.getClientes().get(numCliente).getRgs().size()) {
-							System.out.println("Por favor informe o RG do cliente:");
-							String valor = entrada.receberTexto();
-							/*this.empresa.getClientes().get(cli).getRgs().setValor(valor);*/
-							
-							System.out.println("Por favor informe a data de emissão do RG:");
-							String dataEmissaoRg = entrada.receberTexto();
-							DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-							LocalDate dataEmissao2 = LocalDate.parse(dataEmissaoRg, formato1);
-							/*this.empresa.getClientes().get(cli).getRgs().setDataEmissao(dataEmissao2);*/
-							
-							System.out.println("RG editado com sucesso");
 							break;
 						}
 						System.out.println("Número de RG inválido! Verifique se o número inserido está correto.");
-					
 					}
+						System.out.println("Por favor informe o RG do cliente:");
+						String valor = entrada.receberTexto();
+						this.empresa.getClientes().get(numCliente).getRgs().get(numRg).setValor(valor);
+						
+						System.out.println("Por favor informe a data de emissão do RG:");
+						String dataEmissaoRg = entrada.receberTexto();
+						DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+						LocalDate dataEmissao2 = LocalDate.parse(dataEmissaoRg, formato1);
+						this.empresa.getClientes().get(numCliente).getRgs().get(numRg).setDataEmissao(dataEmissao2);
+						
+						System.out.println("RG editado com sucesso");
+					
 				case 4:
 					
 					Listagem listagemTel = new ListarTelefones(empresa.getClientes());
@@ -123,23 +124,25 @@ public class Editar extends Execucao{
 						System.out.println("Digite o número do Telefone que você deseja editar:");
 						numTel = entrada.receberNumeroInteiro();
 						if (numTel>= 0 && numTel < empresa.getClientes().get(numCliente).getTelefones().size()) {
-							System.out.println("Por favor informe o DDD do telefone:");
-							String ddd = entrada.receberTexto();
-							/*this.empresa.getClientes().get(cli).getTelefones().setDdd(ddd);*/
-							
-							System.out.println("Por favor informe o novo número:");
-							String numero = entrada.receberTexto();
-							/*this.empresa.getClientes().get(cli).getTelefones().setNumero()numero;*/
-							
-							System.out.println("CPF editado com sucesso");
 							break;
 						}
 						System.out.println("Número de Telefone inválido! Verifique se o número inserido está correto.");
-						}
+					}
+					
+					System.out.println("Por favor informe o DDD do telefone:");
+					String ddd = entrada.receberTexto();
+					this.empresa.getClientes().get(numCliente).getTelefones().get(numTel).setDdd(ddd);
+					
+					System.out.println("Por favor informe o novo número:");
+					String numero = entrada.receberTexto();
+					this.empresa.getClientes().get(numCliente).getTelefones().get(numTel).setNumero(numero);
+					
+					System.out.println("Telefone editado com sucesso");
+					break;
 				case 0:
 					ope = false;
 					break;
-				}
+				
 			}
 				break;
 				
@@ -150,16 +153,23 @@ public class Editar extends Execucao{
 				
 				int numProd = 0;
 				while (true) {
-					System.out.println("Digite o número do produto que você deseja deletar:");
+					System.out.println("Digite o número do produto que você deseja editar:");
 					numProd = entrada.receberNumeroInteiro();
+					entrada.receberTexto();
 					if (numProd >= 0 && numProd < empresa.getProdutos().size()) {
 						break;
 					}
 					System.out.println("Número de produto inválido! Verifique se o número inserido está correto.");
 				}
-				this.empresa.getProdutos().remove(numProd);
-				System.out.println("Produto excluído com sucesso!");
-				break;
+					System.out.println("Digite o novo nome do produto:");
+					String nome = entrada.receberTexto();
+					this.empresa.getProdutos().get(numProd).setNome(nome);
+					
+					System.out.println("Digite o novo preço do produto:");
+					double preco = entrada.receberNumeroDouble();
+					this.empresa.getProdutos().get(numProd).setPreco(preco);
+					System.out.println("Produto editado com sucesso!");
+					break;
 				
 			case 3:
 				Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
@@ -167,15 +177,19 @@ public class Editar extends Execucao{
 				
 				int numServ = 0;
 				while (true) {
-					System.out.println("Digite o número do serviço que você deseja deletar:");
+					System.out.println("Digite o número do serviço que você deseja editar:");
 					numServ = entrada.receberNumeroInteiro();
+					entrada.receberTexto();
 					if (numServ >= 0 && numServ < empresa.getServicos().size()) {
 						break;
 					}
 					System.out.println("Número de serviço inválido! Verifique se o número inserido está correto.");
 				}
-				this.empresa.getServicos().remove(numServ);
-				System.out.println("Serviço excluído com sucesso!");	
+				System.out.println("Digite o novo nome do serviço:");
+				this.empresa.getServicos().get(numServ).nome=entrada.receberTexto();
+				System.out.println("Digite o novo valor do serviço:");
+				this.empresa.getServicos().get(numServ).preco=entrada.receberNumeroDouble();
+				System.out.println("Serviço editado com sucesso!");	
 				break;
 			
 			case 0:
