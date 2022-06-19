@@ -29,7 +29,7 @@ public class Carrinho extends Execucao{
 			Entrada entrada = new Entrada();
 			int cli = entrada.receberNumeroInteiro();
 			
-			System.out.println("\nVocê deseja adicionar um:");
+			System.out.println("\nVocê deseja adicionar:");
 			System.out.println("1 - Produtos");
 			System.out.println("2 - Serviços");
 			System.out.println("0 - Voltar");
@@ -48,9 +48,8 @@ public class Carrinho extends Execucao{
 						if (numProd >= 0 && numProd < empresa.getProdutos().size()) {
 							break;
 						}
-						System.out.println("Número de produto inválido! Verifique se o número inserido está correto.");
+					System.out.println("Número de produto inválido! Verifique se o número inserido está correto.");
 					}
-					
 					this.empresa.getClientes().get(cli).getProdutosConsumidos().add(empresa.getProdutos().get(numProd));
 					System.out.println("Produto adicionado com sucesso!");
 					System.out.println("\nDigite sim para adicionar outro produto e nao para continuar");
@@ -66,7 +65,7 @@ public class Carrinho extends Execucao{
 					
 					int numServ = 0;
 					while (true) {
-						System.out.println("Digite o número do serviço que você deseja deletar:");
+						System.out.println("Digite o número do serviço que você deseja adicionar:");
 						numServ = entrada.receberNumeroInteiro();
 						if (numServ >= 0 && numServ < empresa.getServicos().size()) {
 							break;

@@ -18,13 +18,14 @@ public class ListarProdutosConsumidos extends Listagem {
 	public void listar() {
 		Entrada entrada = new Entrada();
 		System.out.println("\nLista de todos os Clientes:");
-		for(Cliente cliente : clientes) {
+		for(Cliente clientes : clientes) {
 			System.out.println("Cliente " + i);
-			System.out.println("Nome: " + cliente.nome);
-			System.out.println("CPF: " + cliente.getCpf());			
+			System.out.println("Nome: " + clientes.nome);
+			System.out.println("CPF: " + clientes.getCpf());			
 		}
 		System.out.println("Digite o número do cliente para listar seu consumo de Produtos");
 		int numCli = entrada.receberNumeroInteiro();
+		System.out.println("Lista de todos os produtos consumidos:");
 		for (Produto produtosConsumidos: clientes.get(numCli).getProdutosConsumidos()) {
 			System.out.println("Produto " + i);
 			System.out.println("Nome do produto: " + produtosConsumidos.nome);
