@@ -11,7 +11,7 @@ public class Cliente {
 	private List<RG> rgs;
 	private LocalDate dataCadastro;
 	private List<Telefone> telefones;
-	private List<Produto> produtosConsumidos;
+	private List<ProdutoConsumido> produtosConsumidos;
 	private List<Servico> servicosConsumidos;
 	private String genero;
 	
@@ -22,7 +22,7 @@ public class Cliente {
 		this.rgs = new ArrayList<RG>();
 		this.dataCadastro = LocalDate.now();
 		this.telefones = new ArrayList<Telefone>();
-		this.produtosConsumidos = new ArrayList<Produto>();
+		this.produtosConsumidos = new ArrayList<ProdutoConsumido>();
 		this.servicosConsumidos = new ArrayList<Servico>();
 		this.genero = genero;
 	}
@@ -44,7 +44,7 @@ public class Cliente {
 	public List<Telefone> getTelefones() {
 		return telefones;
 	}
-	public List<Produto> getProdutosConsumidos() {
+	public List<ProdutoConsumido> getProdutosConsumidos() {
 		return produtosConsumidos;
 	}
 	public List<Servico> getServicosConsumidos() {

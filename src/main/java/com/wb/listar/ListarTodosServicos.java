@@ -13,7 +13,7 @@ public class ListarTodosServicos extends Listagem {
 
 	@Override
 	public void listar() {
-		System.out.println("\nLista de todos os produtos:");
+		System.out.println("\nLista de todos os serviços:");
 		for (Servico servico : servico) {
 			System.out.println("Serviço " + i);
 			System.out.println("Nome do serviço: " + servico.nome);

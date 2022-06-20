@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.wb.io.Entrada;
 import com.wb.modelo.Cliente;
-import com.wb.modelo.Produto;
+import com.wb.modelo.ProdutoConsumido;
 
 public class ListarProdutosConsumidos extends Listagem {
 	private List<Cliente> clientes;
 	int i=0;
+	int x=0;
 
 	public ListarProdutosConsumidos(List<Cliente> clientes) {
 		this.clientes = clientes;
@@ -19,19 +20,20 @@ public class ListarProdutosConsumidos extends Listagem {
 		Entrada entrada = new Entrada();
 		System.out.println("\nLista de todos os Clientes:");
 		for(Cliente clientes : clientes) {
-			System.out.println("Cliente " + i);
+			System.out.println("\nCliente " + i);
 			System.out.println("Nome: " + clientes.nome);
-			System.out.println("CPF: " + clientes.getCpf());			
+			System.out.println("CPF: " + clientes.getCpf().getValor());	
+			i+=1;
 		}
 		System.out.println("Digite o número do cliente para listar seu consumo de Produtos");
 		int numCli = entrada.receberNumeroInteiro();
 		System.out.println("Lista de todos os produtos consumidos:");
-		for (Produto produtosConsumidos: clientes.get(numCli).getProdutosConsumidos()) {
-			System.out.println("Produto " + i);
-			System.out.println("Nome do produto: " + produtosConsumidos.nome);
+		for (ProdutoConsumido produtosConsumidos: clientes.get(numCli).getProdutosConsumidos()) {
+			System.out.println("\nProduto " + i);
+			System.out.println("Nome do produto: " + produtosConsumidos.nome.nome);
 			System.out.println("Quantidade: "+ produtosConsumidos.quantidade);
 			System.out.println("--------------------------------------");
-			i+=1;
+			x+=1;
 		}
 	}
 }

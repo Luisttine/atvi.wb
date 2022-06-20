@@ -7,6 +7,7 @@ import com.wb.listar.ListarTodosClientes;
 import com.wb.listar.ListarTodosProdutos;
 import com.wb.listar.ListarTodosServicos;
 import com.wb.modelo.Empresa;
+import com.wb.modelo.ProdutoConsumido;
 
 public class Carrinho extends Execucao{
 	private Empresa empresa;
@@ -50,7 +51,12 @@ public class Carrinho extends Execucao{
 						}
 					System.out.println("Número de produto inválido! Verifique se o número inserido está correto.");
 					}
-					this.empresa.getClientes().get(cli).getProdutosConsumidos().add(empresa.getProdutos().get(numProd));
+					
+					System.out.println("Digite a quantidade de consumo do Produto:");
+					int quant = entrada.receberNumeroInteiro();
+					ProdutoConsumido prodCons = new ProdutoConsumido((empresa.getProdutos().get(numProd)), quant);
+					empresa.getClientes().get(cli).getProdutosConsumidos().add(prodCons);
+					
 					System.out.println("Produto adicionado com sucesso!");
 					System.out.println("\nDigite sim para adicionar outro produto e nao para continuar");
 					parar = entrada.receberTexto();

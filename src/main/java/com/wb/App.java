@@ -6,6 +6,7 @@ import com.wb.apps.Deletar;
 import com.wb.apps.Editar;
 import com.wb.apps.Execucao;
 import com.wb.apps.Listar;
+import com.wb.apps.outraListagem;
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 
@@ -53,6 +54,11 @@ public class App {
 			case 5:
 				Execucao Carrinho = new Carrinho(empresa);
 				Carrinho.executar();
+			break;
+			case 6:
+				Execucao outraListagem = new outraListagem(empresa);
+				outraListagem.executar();
+			break;
 			default:
 				System.out.println("\nOperação não entendida");
 			}
