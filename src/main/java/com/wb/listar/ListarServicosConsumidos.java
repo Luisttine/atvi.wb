@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.wb.io.Entrada;
 import com.wb.modelo.Cliente;
-import com.wb.modelo.Servico;
+import com.wb.modelo.ServicoConsumido;
 
 public class ListarServicosConsumidos extends Listagem {
 	private List<Cliente> clientes;
@@ -26,7 +26,7 @@ public class ListarServicosConsumidos extends Listagem {
 		System.out.println("Digite o número do cliente para listar seu consumo de Produtos");
 		System.out.println("Lista de todos os serviços consumidos:");
 		int numCli = entrada.receberNumeroInteiro();
-		for (Servico servicosConsumidos: clientes.get(numCli).getServicosConsumidos()) {
+		for (ServicoConsumido servicosConsumidos: clientes.get(numCli).getServicosConsumidos()) {
 			System.out.println("Produto " + i);
 			System.out.println("Nome do produto: " + servicosConsumidos.nome);
 			System.out.println("Quantidade: "+ servicosConsumidos.quantidade);

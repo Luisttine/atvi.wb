@@ -8,6 +8,7 @@ import com.wb.listar.ListarTodosProdutos;
 import com.wb.listar.ListarTodosServicos;
 import com.wb.modelo.Empresa;
 import com.wb.modelo.ProdutoConsumido;
+import com.wb.modelo.ServicoConsumido;
 
 public class Carrinho extends Execucao{
 	private Empresa empresa;
@@ -64,24 +65,28 @@ public class Carrinho extends Execucao{
 				break;
 				
 			case 2:
-				String pare = "sim";
-				while (pare.equals("sim")) {
+				String stop = "sim";
+				while (stop.equals("sim")) {
 					Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
 					listagemServ.listar();
-					
 					int numServ = 0;
 					while (true) {
-						System.out.println("Digite o número do serviço que você deseja adicionar:");
+						System.out.println("Digite o número do Serviço que você deseja adicionar:");
 						numServ = entrada.receberNumeroInteiro();
 						if (numServ >= 0 && numServ < empresa.getServicos().size()) {
 							break;
 						}
-						System.out.println("Número de serviço inválido! Verifique se o número inserido está correto.");
+					System.out.println("Número de Serviço inválido! Verifique se o número inserido está correto.");
 					}
-					this.empresa.getClientes().get(numServ).getServicosConsumidos().add(empresa.getServicos().get(numServ));
-					System.out.println("Serviço adicionado com sucesso!");	
-					System.out.println("\nDigite sim para adicionar outro serviço e nao para continuar");
-					pare = entrada.receberTexto();
+					
+					System.out.println("Digite a quantidade de consumo do Serviço:");
+					int quant = entrada.receberNumeroInteiro();
+					ServicoConsumido servCons = new ServicoConsumido((empresa.getServicos().get(numServ)), quant);
+					empresa.getClientes().get(cli).getServicosConsumidos().add(servCons);
+					
+					System.out.println("Produto adicionado com sucesso!");
+					System.out.println("\nDigite sim para adicionar outro Serviço e nao para continuar");
+					stop = entrada.receberTexto();
 				}
 				break;
 			

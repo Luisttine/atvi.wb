@@ -5,7 +5,6 @@ public class Produto {
 		this.nome = nome;
 		this.preco = preco;
 	}
-	public int quantidade;
 	public String nome;
 	public double preco;
 

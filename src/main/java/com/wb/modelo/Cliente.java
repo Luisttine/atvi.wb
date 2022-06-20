@@ -12,7 +12,7 @@ public class Cliente {
 	private LocalDate dataCadastro;
 	private List<Telefone> telefones;
 	private List<ProdutoConsumido> produtosConsumidos;
-	private List<Servico> servicosConsumidos;
+	private List<ServicoConsumido> servicosConsumidos;
 	private String genero;
 	
 	public Cliente(String nome, String nomeSocial, CPF cpf, String genero) {
@@ -23,7 +23,7 @@ public class Cliente {
 		this.dataCadastro = LocalDate.now();
 		this.telefones = new ArrayList<Telefone>();
 		this.produtosConsumidos = new ArrayList<ProdutoConsumido>();
-		this.servicosConsumidos = new ArrayList<Servico>();
+		this.servicosConsumidos = new ArrayList<ServicoConsumido>();
 		this.genero = genero;
 	}
 	public CPF getCpf() {
@@ -47,7 +47,7 @@ public class Cliente {
 	public List<ProdutoConsumido> getProdutosConsumidos() {
 		return produtosConsumidos;
 	}
-	public List<Servico> getServicosConsumidos() {
+	public List<ServicoConsumido> getServicosConsumidos() {
 		return servicosConsumidos;
 	}
 	public String getGenero() {
