@@ -165,7 +165,7 @@ public class ListarConsGenero extends Listagem{
 	                break;
 	            }
 		
-            /* SERVIÇOS MASCULINOS MAIS CONSUMIDOS*/
+            /* SERVIÇOS FEMININO MAIS CONSUMIDOS*/
 			 System.out.println("Listagem de Serviços dos clientes Masculinos\n");
 			
 			 for (Cliente cliente : clientes) {

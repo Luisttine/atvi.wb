@@ -1,12 +1,6 @@
 package com.wb;
 
-import com.wb.apps.Cadastrar;
-import com.wb.apps.Carrinho;
-import com.wb.apps.Deletar;
-import com.wb.apps.Editar;
-import com.wb.apps.Execucao;
-import com.wb.apps.Listar;
-import com.wb.apps.outraListagem;
+import com.wb.apps.*;
 import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 

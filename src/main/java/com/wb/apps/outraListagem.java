@@ -2,10 +2,9 @@ package com.wb.apps;
 
 import com.wb.io.Entrada;
 import com.wb.listar.Listagem;
-import com.wb.listar.*;
 import com.wb.modelo.Empresa;
-import com.wb.outralistagem.ListarCliGenero;
-import com.wb.outralistagem.ListarConsGenero;
+import com.wb.outralistagem.*;
+
 
 public class outraListagem extends Execucao{
 	private Empresa empresa;
@@ -46,17 +45,21 @@ public class outraListagem extends Execucao{
 				Listagem listagemProdGen = new ListarConsGenero(empresa.getClientes());
 				listagemProdGen.listar();
 				break;
-		
 			case 3:
-				Listagem listagemServ = new ListarTodosServicos(empresa.getServicos());
-				listagemServ.listar();
+				Listagem listagemCliMaisCons = new ListarCliMaisCons(empresa.getClientes());
+				listagemCliMaisCons.listar();
 				break;
 			case 4:
-				Listagem listagemProdCons = new ListarProdutosConsumidos(empresa.getClientes());
-				listagemProdCons.listar();
+				Listagem listagemCliMenosCons = new ListarCliMenosCons(empresa.getClientes());
+				listagemCliMenosCons.listar();
 				break;
 			case 5:
+				Listagem listagemCliMaisVal = new ListarCliMaisVal(empresa.getClientes());
+				listagemCliMaisVal.listar();
 				break;
+			case 6:
+				Listagem listagemProdServCons = new ListarProdServCons(empresa.getClientes());
+				listagemProdServCons.listar();
 			default:
 				System.out.println("\nOperação não entendida");
 			}
