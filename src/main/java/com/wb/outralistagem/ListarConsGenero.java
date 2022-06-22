@@ -161,15 +161,15 @@ public class ListarConsGenero extends Listagem{
 	            }
 	            for(String i : resultFP.keySet()) {
 	                Integer primeiro = resultFP.get(i);
-		            System.out.println("O produto mais consumido pelo Gênero Masculino é " + i + " com " + primeiro + " consumos.");
+		            System.out.println("O produto mais consumido pelo Gênero Feminino é " + i + " com " + primeiro + " consumos.");
 	                break;
 	            }
 		
             /* SERVIÇOS FEMININO MAIS CONSUMIDOS*/
-			 System.out.println("Listagem de Serviços dos clientes Masculinos\n");
+			 System.out.println("Listagem de Serviços dos clientes Feminino\n");
 			
 			 for (Cliente cliente : clientes) {
-				 if (cliente.getGenero().equals("Masculino")) {
+				 if (cliente.getGenero().equals("Feminino")) {
 					 if (cliente.getServicosConsumidos() == null) {
 						 continue;
 					 }
@@ -203,7 +203,7 @@ public class ListarConsGenero extends Listagem{
 	            }
 	            for(String i : resultFS.keySet()) {
 	                Integer primeiro = resultFS.get(i);
-		            System.out.println("O produto mais consumido pelo Gênero Masculino é " + i + " com " + primeiro + " consumos.");
+		            System.out.println("O produto mais consumido pelo Gênero Feminino é " + i + " com " + primeiro + " consumos.");
 	                break;
 	            }
 			
