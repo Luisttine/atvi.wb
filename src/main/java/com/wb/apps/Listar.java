@@ -1,12 +1,9 @@
 package com.wb.apps;
 
 import com.wb.io.Entrada;
-import com.wb.listar.Listagem;
-import com.wb.listar.ListarProdutosConsumidos;
-import com.wb.listar.ListarTodosClientes;
-import com.wb.listar.ListarTodosProdutos;
-import com.wb.listar.ListarTodosServicos;
+import com.wb.listar.*;
 import com.wb.modelo.Empresa;
+import com.wb.outralistagem.ListarProdServCons;
 
 public class Listar extends Execucao{
 	private Empresa empresa;
@@ -56,6 +53,12 @@ public class Listar extends Execucao{
 				listagemProdCons.listar();
 				break;
 			case 5:
+				Listagem listagemServCons = new ListarServicosConsumidos(empresa.getClientes());
+				listagemServCons.listar();
+				break;
+			case 6:
+				Listagem listagemServProdCons = new ListarProdServCons(empresa.getClientes());
+				listagemServProdCons.listar();
 				break;
 			default:
 				System.out.println("\nOperação não entendida");

@@ -13,13 +13,19 @@ public class ListarTodosProdutos extends Listagem {
 
 	@Override
 	public void listar() {
-		System.out.println("\nLista de todos os produtos:");
-		for (Produto produto : produtos) {
-			System.out.println("Produto " + i);
-			System.out.println("Nome do produto: " + produto.nome);
-			System.out.println("Valor: "+ produto.preco);
-			System.out.println("--------------------------------------");
-			i+=1;
+		while (true) {
+			if (produtos.size() == 0) {
+				System.out.println("Não há Produtos suficientes cadastrados para este tipo de listagem!\nPor favor cadastre algum Produto ou tente outro tipo de listagem.");
+				break;
+			}
+			System.out.println("\nLista de todos os produtos:");
+			for (Produto produto : produtos) {
+				System.out.println("Produto " + i);
+				System.out.println("Nome do produto: " + produto.nome);
+				System.out.println("Valor: "+ produto.preco);
+				System.out.println("--------------------------------------");
+				i+=1;
+			}
 		}
 	}
 }

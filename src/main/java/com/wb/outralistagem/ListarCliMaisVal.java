@@ -25,71 +25,80 @@ public class ListarCliMaisVal extends Listagem{
 	}
 
 	@Override
-	public void listar() {		
-		System.out.println("\nListagem dos 10 clientes que mais consumiram Produtos/Serviços por quantidade:");
-		
-		for (Cliente cliente : clientes) {
-			int tot = 0;
-			if(cliente.getProdutosConsumidos() == null) {
-				continue;
+	public void listar() {	
+		while (true) {
+			if (clientes.size() == 0 || clientes.size() < 5) {
+				System.out.println("Não há Clientes suficientes cadastrados para este tipo de listagem!\nPor favor cadastre algum cliente com gênero Masculino/Feminino ou tente outro tipo de listagem.");
+				break;
 			}
-			for (ProdutoConsumido produtosConsumidos: clientes.get(i).getProdutosConsumidos()) {
-				String clienteAtual = clientes.get(i).nome;
-				double x = produtosConsumidos.getNome().getPreco();
-				
-				if (dict.containsKey(clienteAtual)) {
-					dict.replace(clienteAtual, (tot+x));
-				}
-				else {
-					dict.put(clienteAtual, (tot+x));
-				}
-				
-			}
+			System.out.println("\nListagem dos 10 clientes que mais consumiram Produtos/Serviços por quantidade:");
 			
-			i+=1;
-		}
-
-		 for (Cliente cliente : clientes) {
-			 int tot = 0;
-			 if (cliente.getServicosConsumidos() == null) {
-				 continue;
-			 }
-			 for (ServicoConsumido servicosConsumidos: clientes.get(i).getServicosConsumidos()) {
-				 String clienteAtual = clientes.get(i).nome;
-				 double x = servicosConsumidos.getNome().getPreco();
-				
-				 if (dict.containsKey(clienteAtual)) {
+			for (Cliente cliente : clientes) {
+				int tot = 0;
+				if(cliente.getProdutosConsumidos() == null) {
+					continue;
+				}
+				for (ProdutoConsumido produtosConsumidos: clientes.get(i).getProdutosConsumidos()) {
+					String clienteAtual = clientes.get(i).nome;
+					double x = produtosConsumidos.getNome().getPreco();
+					
+					if (dict.containsKey(clienteAtual)) {
 						dict.replace(clienteAtual, (tot+x));
 					}
 					else {
 						dict.put(clienteAtual, (tot+x));
 					}
-			 }
-			i+=1;
-		}
-		 
-		
-		 List<Entry<String, Double>> listMS = new LinkedList<>(dict.entrySet());
-         Collections.sort(listMS, new Comparator<Object>() {
-            @SuppressWarnings("unchecked")
-            public int compare(Object o1, Object o2) {
-                    return ((Comparable<Double>) ((Map.Entry<String, Double>) (o2)).getValue()).compareTo(((Map.Entry<String, Double>) (o1)).getValue());
-                }
-            });
-            Map<String, Double> resultMS = new LinkedHashMap<>();
-            for (Iterator<Entry<String, Double>> it = listMS.iterator(); it.hasNext();) {
-                Map.Entry<String, Double> entry = (Map.Entry<String, Double>) it.next();
-                resultMS.put(entry.getKey(), entry.getValue());
-            }
-            int stopS=1;
-            while (stopS != 5) {
-            	for(String j : resultMS.keySet()) {
-                    double primeiro = resultMS.get(j);
+					
+				}
+				
+				i+=1;
+			}
+			 i=0;
+			 for (Cliente cliente : clientes) {
+				 int tot = 0;
+				 if (cliente.getServicosConsumidos() == null) {
+					 continue;
+				 }
+				 for (ServicoConsumido servicosConsumidos: clientes.get(i).getServicosConsumidos()) {
+					 String clienteAtual = clientes.get(i).nome;
+					 double x = servicosConsumidos.getNome().getPreco();
+					
+					 if (dict.containsKey(clienteAtual)) {
+							dict.replace(clienteAtual, (tot+x));
+						}
+						else {
+							dict.put(clienteAtual, (tot+x));
+						}
+				 }
+				i+=1;
+			}
+			 
+			
+			 List<Entry<String, Double>> listMS = new LinkedList<>(dict.entrySet());
+	         Collections.sort(listMS, new Comparator<Object>() {
+	            @SuppressWarnings("unchecked")
+	            public int compare(Object o1, Object o2) {
+	                    return ((Comparable<Double>) ((Map.Entry<String, Double>) (o2)).getValue()).compareTo(((Map.Entry<String, Double>) (o1)).getValue());
+	                }
+	            });
+	            Map<String, Double> resultMS = new LinkedHashMap<>();
+	            for (Iterator<Entry<String, Double>> it = listMS.iterator(); it.hasNext();) {
+	                Map.Entry<String, Double> entry = (Map.Entry<String, Double>) it.next();
+	                resultMS.put(entry.getKey(), entry.getValue());
+	            }
+	            int stopS=1;
+	            for(String j : resultMS.keySet()) {
+                    if (stopS == 6) {
+                    	break;
+                    }
+                    else {
+            		double primeiro = resultMS.get(j);
                     System.out.println("O cliente " + j + " foi o  " + stopS + " consumindo Produtos/Serviços no valor " + primeiro);
-    	            System.out.println("------------------------------------------------------\n");
-    	            break;
+    	            System.out.println("--------------------------------------------------------------");
+                	stopS+=1;
+            		}
                 }
-            	stopS+=1;
-            }
+		}
+            
 	}
 }

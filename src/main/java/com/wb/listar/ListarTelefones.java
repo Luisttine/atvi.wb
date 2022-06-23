@@ -20,8 +20,7 @@ public class ListarTelefones extends Listagem {
 			
 			for (Telefone telefone : cliente.getTelefones()) {
 				System.out.println("Telefone " + i);
-				System.out.println("\nLista de todos os clientes:");
-				System.out.println("Telefone: " + telefone.getDdd() + telefone.getNumero());
+				System.out.println("Telefone: " + "("+telefone.getDdd()+")" + telefone.getNumero());
 				System.out.println("--------------------------------------");
 				i+=1;
 			}

@@ -9,6 +9,8 @@ public class App {
 		
 		System.out.println("Bem-vindo ao cadastro de clientes do Grupo World Beauty");
 		Empresa empresa = new Empresa();
+		//Cadastros Cadastros = new Cadastros(empresa.getClientes(), empresa.getProdutos(), empresa.getServicos(), empresa);
+		//Cadastros.cadastrar();
 		boolean execucao = true;
 		while (execucao) {
 			System.out.println("\nQue tipo de operação você deseja fazer");

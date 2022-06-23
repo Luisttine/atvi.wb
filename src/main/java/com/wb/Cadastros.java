@@ -29,80 +29,114 @@ public class Cadastros extends Cadastro{
 	}
 	@Override
 	public void cadastrar() {
-		int masc = 1;
-		while (masc != 15) {
-			String nome = "Cliente " + masc;
-			String nomeSocial = "Cliente " + masc;
+		int masc = 0;
+		int outro=0;
+		while (masc < 17) {
+			String nome = "Cliente " + (masc+1);
+			String nomeSocial = "Cliente " + (masc+1);
 			String genero = "Masculino";
-			String valorCPF = "000000" + masc;
-			String dataCPF = masc + "/01/2000";
+			String valorCPF = "000000" + (masc+1);
+			String dataCPF = "01/01/2000";
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate dataEmissaoCPF = LocalDate.parse(dataCPF, formato);
 			CPF cpf = new CPF(dataEmissaoCPF, valorCPF);
 			Cliente cliente = new Cliente(nome, nomeSocial, cpf, genero);
 
-			String valorRG = "000000" + masc;
-			String dataRG = masc + "/01/2000";
+			String valorRG = "000000" + (masc+1);
+			String dataRG = "01/01/2000";
 			LocalDate dataEmissaoRG = LocalDate.parse(dataRG, formato);
 			RG rgs = new RG(dataEmissaoRG, valorRG);
 			cliente.getRgs().add(rgs);
 			
 			String ddd = "12";
-			String numero = "0000000" + masc;
+			String numero = "0000000" + (masc+1);
 			Telefone telefone = new Telefone(ddd, numero);
 			cliente.getTelefones().add(telefone);
 			
 			this.clientes.add(cliente);
 			
-			String nomeP = "Produto" + masc;
-			double precoP = masc;
+			String nomeP = "Produto" + (masc+1);
+			double precoP = masc+1;
 			Produto produto = new Produto(nomeP, precoP);
 			this.produtos.add(produto);
 			
-			String nomeS = "Serviço" + masc;
-			double precoS = masc;
+			String nomeS = "Serviço" + (masc+1);
+			double precoS = (masc+1);
 			Servico servico = new Servico(nomeS, precoS);
 			this.servicos.add(servico);
 			
-			ProdutoConsumido prodCons = new ProdutoConsumido((empresa.getProdutos().get(masc-1)), masc);
-			empresa.getClientes().get(masc-1).getProdutosConsumidos().add(prodCons);
-			ProdutoConsumido prodCons1 = new ProdutoConsumido((empresa.getProdutos().get(masc-1)), masc);
-			empresa.getClientes().get(masc-1).getProdutosConsumidos().add(prodCons1);
+			int prod = 0;
+			ProdutoConsumido prodCons = new ProdutoConsumido((empresa.getProdutos().get(prod)), masc);
+			empresa.getClientes().get(masc).getProdutosConsumidos().add(prodCons);
+			String nomeP2 = "Produto" + (outro+2);
+			double precoP2 = masc+2;
+			Produto produto2 = new Produto(nomeP2,precoP2);
+			this.produtos.add(produto2);
+			ProdutoConsumido prodCons1 = new ProdutoConsumido((empresa.getProdutos().get(prod+1)), masc);
+			empresa.getClientes().get(masc).getProdutosConsumidos().add(prodCons1);
 			
-			ServicoConsumido servCons = new ServicoConsumido((empresa.getServicos().get(masc-1)), masc);
-			empresa.getClientes().get(masc-1).getServicosConsumidos().add(servCons);
+			ServicoConsumido servCons = new ServicoConsumido((empresa.getServicos().get(prod)), masc);
+			empresa.getClientes().get(masc).getServicosConsumidos().add(servCons);
 			
+			outro = outro + 2;
 			masc+=1;
+			prod+=1;
 		}
 		
 		int fem = 16;
-		while (fem != 30) {
-			String nome = "Cliente " + masc;
-			String nomeSocial = "Cliente " + masc;
+		outro = 30;
+		while (fem < 30) {
+			String nome = "Cliente " + (fem+1);
+			String nomeSocial = "Cliente " + (fem+1);
 			String genero = "Feminino";
-			String valorCPF = "000000" + masc;
-			String dataCPF = masc + "/01/2000";
+			String valorCPF = "000000" + (fem+1);
+			String dataCPF = "01/01/2000";
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate dataEmissaoCPF = LocalDate.parse(dataCPF, formato);
 			CPF cpf = new CPF(dataEmissaoCPF, valorCPF);
 			Cliente cliente = new Cliente(nome, nomeSocial, cpf, genero);
 
-			String valorRG = "000000" + masc;
-			String dataRG = masc + "/01/2000";
+			String valorRG = "000000" + (fem+1);
+			String dataRG = "01/01/2000";
 			LocalDate dataEmissaoRG = LocalDate.parse(dataRG, formato);
 			RG rgs = new RG(dataEmissaoRG, valorRG);
 			cliente.getRgs().add(rgs);
 			
 			String ddd = "12";
-			String numero = "0000000" + masc;
+			String numero = "0000000" + (fem+1);
 			Telefone telefone = new Telefone(ddd, numero);
 			cliente.getTelefones().add(telefone);
 			
+			String nomeP = "Produto" + (fem+1);
+			double precoP = (fem+1);
+			Produto produto = new Produto(nomeP, precoP);
+			this.produtos.add(produto);
+			
+			String nomeS = "Serviço" + (fem+1);
+			double precoS = (fem+1);
+			Servico servico = new Servico(nomeS, precoS);
+			this.servicos.add(servico);
+			
+			int prod = 0;
+			ProdutoConsumido prodCons = new ProdutoConsumido((empresa.getProdutos().get(prod)), fem);
+			empresa.getClientes().get(fem).getProdutosConsumidos().add(prodCons);
+			String nomeP2 = "Produto" + (fem+2);
+			double precoP2 = fem+2;
+			Produto produto2 = new Produto(nomeP2,precoP2);
+			this.produtos.add(produto2);
+			ProdutoConsumido prodCons1 = new ProdutoConsumido((empresa.getProdutos().get(prod+1)), fem);
+			empresa.getClientes().get(fem).getProdutosConsumidos().add(prodCons1);
+			
+			ServicoConsumido servCons = new ServicoConsumido((empresa.getServicos().get(prod)), fem);
+			empresa.getClientes().get(fem).getServicosConsumidos().add(servCons);
+			
+			
 			this.clientes.add(cliente);
+			outro+=2;
+			prod+=1;
 			fem+=1;
 		}
 		
 		
 	}
-	
 }

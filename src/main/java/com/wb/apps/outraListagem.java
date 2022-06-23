@@ -60,6 +60,7 @@ public class outraListagem extends Execucao{
 			case 6:
 				Listagem listagemProdServCons = new ListarProdServCons(empresa.getClientes());
 				listagemProdServCons.listar();
+				break;
 			default:
 				System.out.println("\nOperação não entendida");
 			}

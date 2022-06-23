@@ -17,23 +17,34 @@ public class ListarProdutosConsumidos extends Listagem {
 	
 	@Override
 	public void listar() {
-		Entrada entrada = new Entrada();
-		System.out.println("\nLista de todos os Clientes:");
-		for(Cliente clientes : clientes) {
-			System.out.println("\nCliente " + i);
-			System.out.println("Nome: " + clientes.nome);
-			System.out.println("CPF: " + clientes.getCpf().getValor());	
-			i+=1;
-		}
-		System.out.println("Digite o número do cliente para listar seu consumo de Produtos");
-		int numCli = entrada.receberNumeroInteiro();
-		System.out.println("Lista de todos os produtos consumidos:");
-		for (ProdutoConsumido produtosConsumidos: clientes.get(numCli).getProdutosConsumidos()) {
-			System.out.println("\nProduto " + i);
-			System.out.println("Nome do produto: " + produtosConsumidos.nome.nome);
-			System.out.println("Quantidade: "+ produtosConsumidos.quantidade);
-			System.out.println("--------------------------------------");
-			x+=1;
+		while (true) {
+			if (clientes.size() == 0) {
+				System.out.println("Não há Clientes suficientes cadastrados para este tipo de listagem!\nPor favor cadastre algum cliente ou tente outro tipo de listagem.");
+				break;
+			}
+			Entrada entrada = new Entrada();
+			System.out.println("\nLista de todos os Clientes:");
+			for(Cliente clientes : clientes) {
+				System.out.println("Cliente " + i);
+				System.out.println("Nome: " + clientes.nome);
+				System.out.println("CPF: " + clientes.getCpf().getValor());	
+				System.out.println("--------------------------------------");
+				i+=1;
+			}
+			System.out.println("Digite o número do cliente para listar seu consumo de Produtos");
+			int numCli = entrada.receberNumeroInteiro();
+			if (clientes.get(numCli).getServicosConsumidos().size() == 0) {
+				System.out.println("Não há Produtos adicionados no carrinho para consumo do Cliente"+numCli+".\nPor favor adicione algum Produto ao carrinho do cliente.");
+				break;
+			}
+			System.out.println("\nLista de todos os produtos consumidos do cliente "+numCli+":");
+			for (ProdutoConsumido produtosConsumidos: clientes.get(numCli).getProdutosConsumidos()) {
+				System.out.println("Produto " + x);
+				System.out.println("Nome do produto: " + produtosConsumidos.nome.nome);
+				System.out.println("Quantidade: "+ produtosConsumidos.quantidade);
+				System.out.println("--------------------------------------");
+				x+=1;
+			}
 		}
 	}
 }
